@@ -1,14 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { GithubProvider } from "./context/StateProvider";
+import { initialState } from "./context/GithubReducer";
+import reducer from "./context/GithubReducer";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <GithubProvider initialState={initialState} reducer={reducer}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </GithubProvider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
